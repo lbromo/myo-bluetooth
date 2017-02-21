@@ -17,13 +17,13 @@
 # define MYOHW_STATIC_ASSERT_SIZED(type, size)
 #endif
 
-#define MYO_SERVICE_INFO_UUID { \
-    0x42, 0x48, 0x12, 0x4a,     \
-    0x7f, 0x2c, 0x48, 0x47,     \
-    0xb9, 0xde, 0x04, 0xa9,     \
-    0x01, 0x00, 0x06, 0xd5      \
-}
-static const uint8_t kMyoServiceInfoUuid[] = MYO_SERVICE_INFO_UUID;
+static const uint8_t kMyoServiceInfoUuid[] =
+{
+        0x42, 0x48, 0x12, 0x4a,
+        0x7f, 0x2c, 0x48, 0x47,
+        0xb9, 0xde, 0x04, 0xa9,
+        0x01, 0x00, 0x06, 0xd5
+};
 
 /// The number of EMG sensors that a Myo has.
 static const int myohw_num_emg_sensors = 8;
@@ -37,12 +37,12 @@ static const int myohw_num_emg_sensors = 8;
 /// UUID, replace the two 0x00 hex bytes of MYO_SERVICE_BASE_UUID with a short UUID from myohw_standard_services. 
 /// The byte sequence of MYO_SERVICE_BASE_UUID is in network order. Keep this in mind when doing the replacement.
 /// For example, the full service UUID for GCControlService would be d5060001-a904-deb9-4748-2c7f4a124842. 
-#define MYO_SERVICE_BASE_UUID { \
-    0x42, 0x48, 0x12, 0x4a,     \
-    0x7f, 0x2c, 0x48, 0x47,     \
-    0xb9, 0xde, 0x04, 0xa9,     \
-    0x00, 0x00, 0x06, 0xd5      \
-}
+/* #define MYO_SERVICE_BASE_UUID { \ */
+/*     0x42, 0x48, 0x12, 0x4a,     \ */
+/*     0x7f, 0x2c, 0x48, 0x47,     \ */
+/*     0xb9, 0xde, 0x04, 0xa9,     \ */
+/*     0x00, 0x00, 0x06, 0xd5      \ */
+/* } */
 
 typedef enum {
     ControlService                = 0x0001, ///< Myo info service
@@ -288,9 +288,9 @@ MYOHW_STATIC_ASSERT_SIZED(myohw_imu_data_t, 20);
 #define MYOHW_DEFAULT_IMU_SAMPLE_RATE 50
 
 /// Scale values for unpacking IMU data
-#define MYOHW_ORIENTATION_SCALE   16384.0f ///< See myohw_imu_data_t::orientation
-#define MYOHW_ACCELEROMETER_SCALE 2048.0f  ///< See myohw_imu_data_t::accelerometer
-#define MYOHW_GYROSCOPE_SCALE     16.0f    ///< See myohw_imu_data_t::gyroscope
+#define MYOHW_ORIENTATION_SCALE   16384 ///< See myohw_imu_data_t::orientation
+#define MYOHW_ACCELEROMETER_SCALE 2048  ///< See myohw_imu_data_t::accelerometer
+#define MYOHW_GYROSCOPE_SCALE     16    ///< See myohw_imu_data_t::gyroscope
 
 /// Types of motion events.
 typedef enum {
